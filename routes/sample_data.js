@@ -31,8 +31,8 @@ router.post("/add_sample", function (request, response, next) {
     var Phone = request.body.Phone;
     var Address = request.Address;
 
-    var query = `insert into Customer(Fname,Lname,Phone,Address)
-    values('${Fname}','${Lname}','${Phone}','${Address}')`;
+    var query = `insert into Customer(No,Fname,Lname,Phone,Address)
+    values('${No}','${Fname}','${Lname}','${Phone}','${Address}')`;
 
     database.query(query, function (error, data) {
         if (error) {

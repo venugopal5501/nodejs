@@ -57,16 +57,26 @@ router.get("/edit/:id", function (request, response, next) {
         });
     });
 });
-response.send("Add sample data");
+// response.send("Add sample data");
 
-router.post('edit/:id', function (request, response, next) {
-    var No = request.params.No;
+router.post('/edit/:id', function (request, response, next) {
+    var id = request.params.id;
+    var No = request.body.No;
     var Fname = request.body.Fname;
     var Lname = request.body.Lname;
     var Phone = request.body.Phone;
     var Address = request.body.Address;
 
-    var query3 = `update Customer set Fname='${Fname}', Lname='${Lname}', Phone='${Phone}', 'Address='${Address}' where No=${No}'`;
+    var query3 = `update Customer set No='${id}',Fname='${Fname}', Lname='${Lname}', Phone='${Phone}', Address='${Address}' where No=${id}`;
+
+    database.query(query3, function (error, data) {
+        if (error) {
+            throw error;
+        }
+        else {
+            response.redirect("/sample");
+        }
+    })
 })
 
 

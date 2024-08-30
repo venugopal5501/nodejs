@@ -15,12 +15,11 @@
             <%= title %>
         </h1>
 
-        <% if(action =='edit1') { %>
+        <% if(action=='edit1' ) { %>
             <div class="card">
                 <div class="card-header">Edit Sample</div>
                 <div class="card-body">
-                    <form method="POST" action="/sample/edit">
-                        <!-- <input type="hidden" name="id" value="<%= Data.id %>"> -->
+                    <form method="POST" action="/sample/edit/<%=Data.No%>">
 
                         <div class="mb-3">
                             <label>No</label>
@@ -28,27 +27,31 @@
                         </div>
                         <div class="mb-3">
                             <label>Fname</label>
-                            <input type="text" name="Fname" id="Fname" class="form-control" value="<%= Data.Fname %>" required>
+                            <input type="text" name="Fname" id="Fname" class="form-control" value="<%= Data.Fname %>"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label>Lname</label>
-                            <input type="text" name="Lname" id="Lname" class="form-control" value="<%= Data.Lname %>" required>
+                            <input type="text" name="Lname" id="Lname" class="form-control" value="<%= Data.Lname %>"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label>Phone</label>
-                            <input type="text" name="Phone" id="Phone" class="form-control" value="<%= Data.Phone %>" required>
+                            <input type="text" name="Phone" id="Phone" class="form-control" value="<%= Data.Phone %>"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label>Address</label>
-                            <input type="text" name="Address" id="Address" class="form-control" value="<%= Data.Address%>" required>
+                            <input type="text" name="Address" id="Address" class="form-control"
+                                value="<%= Data.Address%>" required>
                         </div>
                         <div class="mb-3">
-                            <input type="submit" name="submit_button" class="btn btn-primary" value="Edit" >
+                            <input type="submit" name="submit_button" class="btn btn-primary" value="Edit">
                         </div>
                     </form>
                 </div>
             </div>
-        <% } %>
+            <% } %>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

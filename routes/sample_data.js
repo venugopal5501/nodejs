@@ -12,7 +12,7 @@ router.get("/", function (request, response, next) {
                 title: 'Nodejs Application',
                 action: "list",
                 Data: data.recordset,
-                message: request.flash('success','Data Inserted'),
+                message: request.flash('success'),
             });
         }
     });
@@ -20,7 +20,9 @@ router.get("/", function (request, response, next) {
 });
 
 router.get("/add", function (request, response, next) {
-    response.render("samples1", { title: 'Data Insertion', action: 'add' });
+    response.render("samples1", { title: 'Data Insertion', action: 'add',
+        message: request.flash('success'),
+     });
 
 
 });
@@ -57,7 +59,7 @@ router.get("/edit/:id", function (request, response, next) {
             title: 'Edit SQL Data',
             action: 'edit1',
             Data: data.recordset[0],
-            message: request.flash('success','Data Updated')
+            message: request.flash('success'),
         });
     });
 });

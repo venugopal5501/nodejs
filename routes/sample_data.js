@@ -12,6 +12,7 @@ router.get("/", function (request, response, next) {
                 title: 'Nodejs Application',
                 action: "list",
                 Data: data.recordset,
+                message: request.flash('success','Data Inserted'),
             });
         }
     });
@@ -39,9 +40,11 @@ router.post("/add_sample", function (request, response, next) {
             throw error;
         }
         else {
+            request.flash('success', 'Data Inserted');
             response.redirect("/sample");
 
         }
+
     })
 
 });
@@ -54,6 +57,7 @@ router.get("/edit/:id", function (request, response, next) {
             title: 'Edit SQL Data',
             action: 'edit1',
             Data: data.recordset[0],
+            message: request.flash('success','Data Updated')
         });
     });
 });
@@ -74,6 +78,7 @@ router.post('/edit/:id', function (request, response, next) {
             throw error;
         }
         else {
+            response.flash('success', 'Data Updated');
             response.redirect("/sample");
         }
     })
@@ -88,6 +93,7 @@ router.get('/delete/:id', function (request, response, next) {
             throw error;
         }
         else {
+            request.flash('success', 'Data Deleted');
             response.redirect("/sample");
         }
     })

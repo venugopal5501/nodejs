@@ -15,7 +15,7 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
             <%= title %>
         </h1>
 
-        <% if(action=='list' ) { %>
+        <% if(action=='add') { %>
             <div class="card">
                 <div class="card-header">Sample Form</div>
                 <div class="card-body">
@@ -24,13 +24,13 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label>No</label>
-                                    <input type="number" name="first_name" id="first_name" class="form-control" />
+                                    <input type="number" name="No" id="No" class="form-control" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label>Fname</label>
-                                    <input type="text" name="last_name" id="last_name" class="form-control" />
+                                    <input type="text" name="Fname" id="Fname" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -38,7 +38,7 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label>Lname</label>
-                                    <input type="text" name="email" id="email" class="form-control" />
+                                    <input type="text" name="Lname" id="Lname" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label>Phone</label>
-                                    <input type="number" name="email" id="email" class="form-control" />
+                                    <input type="number" name="Phone" id="Phone" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -56,7 +56,7 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
                                     <label>
                                         Address
                                     </label>
-                                    <input type="text" name="email" id="email" class="form-control" />
+                                    <input type="text" name="Address" id="Address" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -73,7 +73,7 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
                         <div class="row">
                             <div class="col">Sample Data</div>
                             <div class="col">
-                                <a href="/sample_data/add" class="btn btn-success btn-sm float-end">Add</a>
+                                <a href="sample/add" class="btn btn-success btn-sm float-end">Add</a>
                             </div>
                         </div>
                     </div>
@@ -108,10 +108,12 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
                                             <%= data.Address %>
                                         </td>
                                         <td>
-                                            <a href="/sample_data/edit/<%= data.id %>"
+                                            <a href="/sample/edit/<%= data.No %>"
                                                 class="btn btn-primary btn-sm">Edit</a>
                                         </td>
                                     </tr>
+                                    
+                                    
                                     <% }); } else { %>
                                         <tr>
                                             <td colspan="5">No Data Found</td>

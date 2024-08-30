@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var database = require('../database');
 router.get("/", function (request, response, next) {
-    var query1 = "select *from Customer order by address desc";
+    var query1 = "select *from Customer order by No asc";
     database.query(query1, function (error, data) {
         if (error) {
             throw error;
@@ -77,6 +77,21 @@ router.post('/edit/:id', function (request, response, next) {
             response.redirect("/sample");
         }
     })
+})
+
+
+router.get('/delete/:id', function (request, response, next) {
+    var id = request.params.id;
+    var query4 = `Delete from Customer where No=${id}`;
+    database.query(query4, function (error, data) {
+        if (error) {
+            throw error;
+        }
+        else {
+            response.redirect("/sample");
+        }
+    })
+
 })
 
 

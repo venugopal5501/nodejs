@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Include your head elements here -->
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mt-3 mb-3">View Sample Data</h1>
+
+        <% if(Data){ %>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Emp No:</th>
+                    <td>
+                        <%= Data.empno %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Name:</th>
+                    <td>
+                        <%= Data.name %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td>
+                        <%= Data.email %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Date of Joining:</th>
+                    <td>
+                        <%= formatDate(Data.doj) %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Basic Pay:</th>
+                    <td>
+                        <%= Data.basic_pay %>
+                    </td>
+                </tr>
+                <!-- Add other fields as needed -->
+            </table>
+            <% } else { %>
+                <p>No data found.</p>
+                <% } %>
+    </div>
+</body>
+
+</html>

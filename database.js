@@ -1,7 +1,7 @@
 const sql = require('mssql');
 
 var dbconfig = {
-    server: 'DINCD-035',
+    server: 'DINCD-101',
     port: 1433,
     database: 'venugopal',
     user: 'Training',

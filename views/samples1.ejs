@@ -14,7 +14,6 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
         <h1 class="text-center mt-3 mb-3">
             <%= title %>
         </h1>
-
         <% if(action=='add' ) { %>
             <div class="card">
                 <div class="card-header">Sample Form</div>
@@ -23,30 +22,30 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label>No</label>
-                                    <input type="number" name="No" id="No" class="form-control" />
+                                    <label>EmpNo</label>
+                                    <input type="number" name="empno" id="No" class="form-control" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label>Fname</label>
-                                    <input type="text" name="Fname" id="Fname" class="form-control" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label>Lname</label>
-                                    <input type="text" name="Lname" id="Lname" class="form-control" />
+                                    <label>Name</label>
+                                    <input type="text" name="name" id="name" class="form-control" />
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label>Phone</label>
-                                    <input type="number" name="Phone" id="Phone" class="form-control" />
+                                    <label>Email</label>
+                                    <input type="email" name="email" id="email" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Date of Joining</label>
+                                    <input type="text" name="doj" id="doj" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -54,9 +53,9 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label>
-                                        Address
+                                        Basic Pay
                                     </label>
-                                    <input type="text" name="Address" id="Address" class="form-control" />
+                                    <input type="number" name="basic_pay" id="basic_pay" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -79,43 +78,59 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered">
+                            <table class="table table-bordered" border="">
                                 <tr>
-                                    <th>No</th>
-                                    <th>Fname</th>
-                                    <th>Lname</th>
-                                    <th>Phone</th>
-                                    <th>Address</th>
+                                    <th>Emp No</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Date of Joining</th>
+                                    <th>Total Year of Experience</th>
+                                    <th>Basic Pay</th>
+                                    <th>Gross Pay</th>
+                                    <th>Net Pay</th>
+                                    <th>Actions</th>
+                                    <!-- <th>Address</th> -->
                                 </tr>
                                 <% if(Data.length> 0)
                                     {
                                     Data.forEach(function(data){
+                                        var formattedDOJ = formatDate(data.doj);
                                     %>
                                     <tr>
                                         <td>
-                                            <%= data.No %>
+                                            <%= data.empno %>
                                         </td>
                                         <td>
-                                            <%= data.Fname %>
+                                            <%= data.name %>
                                         </td>
                                         <td>
-                                            <%= data.Lname %>
+                                            <%= data.email %>
                                         </td>
                                         <td>
-                                            <%= data.Phone %>
+                                            <%= formattedDOJ %>
                                         </td>
                                         <td>
+                                            <%= data.year_of_experience %>
+                                        </td>
+                                        <td>
+                                            <%= data.basic_pay %>
+                                        </td>
+                                        <td>
+                                            <%= data.Gross_Pay %>
+                                        </td>
+                                        <td>
+                                            <%= data.Net_Pay %>
+                                        </td>
+                                        <!-- <td>
                                             <%= data.Address %>
-                                        </td>
+                                        </td> -->
                                         <td>
-                                            <a href="/sample/edit/<%= data.No %>"
+                                            <a href="/sample/edit/<%= data.empno %>"
                                                 class="btn btn-primary btn-sm">Edit</a>
-                                            <a href="/sample/delete/<%=data.No%>"
+                                            <a href="/sample/delete/<%=data.empno%>"
                                                 class="btn btn-danger btn-sm">Delete</a>
                                         </td>
                                     </tr>
-
-
                                     <% }); } else { %>
                                         <tr>
                                             <td colspan="5">No Data Found</td>
